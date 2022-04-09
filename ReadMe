@@ -1,0 +1,23 @@
+This is a simple CGI Web server that accept HTTP GET requests and outputs a valid HTML with content as well as appropriate errors. 
+This program uses select, pipes, fork, socket, read/write.
+
+First download these files localy, and run make in the terminal.
+Then run wserver but typng the following command: './wserver pppppp' where pppppp is a port number other than 80.
+
+If you run a web browser (for example,firefox, chrome, lynx) on the same machine as your web server program, you can connect to your web server by entering a url as 
+http://127.0.0.1:ppppp/prog or http://localhost:ppppp/prog where ppppp is replaced by the port number that your server is listening on, and prog is the name of the 
+program you want to run (simple, slowcgi, term, large). The address 127.0.0.1 and name localhost identify the machine on which the browser is running.
+
+You can also use the nc program to act as a client to your web server. Run it as "nc localhost ppppp" where ppppp is the port number of your web server. 
+Then type in your GET request, and you will see the output in text form.  Remember to use either "-c" or "-C" to send the network newlines. Also remember 
+that an HTTP request message is terminated by a blank line, so you will have to hit "enter" twice to send "\r\n\r\n".
+
+The GET requests that this server accepts are:
+
+GET /large?arg1=1 HTTP/1.1
+GET /term?arg1=1 HTTP/1.1
+GET /simple?arg1=name&arg2=value HTTP/1.1
+GET /slowcgi?arg1=name HTTP/1.1
+
+feel free to give as many arguments as you like.
+
